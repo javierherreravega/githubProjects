@@ -1,0 +1,109 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.9998041978248067 -0.019146158479850534 -0.004999062648058593 5.772293240618101
+  position -0.3178619469511308 0.8032555086877501 0.9756948596141753
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  appearance Appearance {
+    material Material {
+      diffuseColor 0.458824 0.458824 0.458824
+    }
+    texture ImageTexture {
+    }
+  }
+}
+DEF ROAD Solid {
+  translation 0 0.0001 0
+  children [
+    Transform {
+      translation -0.33 0 -0.77
+      scale 0.3 0.7 0.3
+      children [
+        TrafficCone {
+        }
+      ]
+    }
+    Solid {
+      translation 0 0 -0.67
+      children [
+        Transform {
+          translation -0.35 0 -0.65
+          rotation 0 1 0 1.5708
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0 0 0
+                }
+                texture ImageTexture {
+                  url [
+                    "textures/asphalt.jpg"
+                  ]
+                }
+                textureTransform TextureTransform {
+                  scale 2 3
+                }
+              }
+              geometry Plane {
+                size 0.2 0.5
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0 0 0
+            }
+            texture ImageTexture {
+              url [
+                "textures/asphalt.jpg"
+              ]
+            }
+            textureTransform TextureTransform {
+              scale 2 3
+            }
+          }
+          geometry Plane {
+            size 0.2 1.5
+          }
+        }
+        Transform {
+          translation -0.7 0 0
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0 0 0
+                }
+                texture ImageTexture {
+                  url [
+                    "textures/asphalt.jpg"
+                  ]
+                }
+                textureTransform TextureTransform {
+                  scale 2 3
+                }
+              }
+              geometry Plane {
+                size 0.2 1.5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+BoeBot {
+  translation 1.23706e-06 0.0356047 -0.0205726
+  rotation -0.99999752991995 0.00029166485744802455 0.002203425880262063 -0.020951663788525598
+  controller "boeBotController"
+}
