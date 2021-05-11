@@ -1,0 +1,304 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.991573304294322 -0.1290105427027571 -0.011775486502895836 6.099600534035115
+  position 0.17022213029515315 0.44388841504398974 1.4443452322671453
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+  texture "noon_cloudy_countryside"
+}
+Floor {
+  size 100 100
+  appearance PBRAppearance {
+    baseColor 1 0.913725 0.745098
+    roughnessMap ImageTexture {
+      url [
+        "textures/grid.png"
+      ]
+    }
+  }
+}
+WoodenBox {
+  translation 0.26 0.07 -0.77
+  name "wooden box(2)"
+  size 0.15 0.15 0.15
+}
+WoodenBox {
+  translation -0.1 0.07 -0.77
+  name "wooden box(1)"
+  size 0.15 0.15 0.15
+}
+WoodenBox {
+  translation 0.08 0.07 -0.77
+  size 0.15 0.15 0.15
+}
+Transform {
+  translation 0.26 0 -0.83
+  scale 0.3 0.3 0.3
+  children [
+    PottedTree {
+      translation 0.74 0 0
+    }
+    PottedTree {
+      translation -1.8 0 0
+      name "potted tree(1)"
+    }
+    PottedTree {
+      translation 0.66 0 1.37
+      name "potted tree(2)"
+    }
+    PottedTree {
+      translation -1.8 0 1.37
+      name "potted tree(3)"
+    }
+  ]
+}
+Robot {
+  translation 0.23307 0.0469007 0.234537
+  rotation 0.0001727156054710747 0.9998174626691572 -0.019105274432159397 3.120418940376838
+  children [
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.2078 0.4627 0.8
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.15
+      }
+    }
+    DEF BASE_SENSORS Solid {
+      translation 0 0.04 0.065
+      children [
+        DEF BASE_SENSORS Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.207843 0.462745 0.8
+            }
+          }
+          geometry Box {
+            size 0.1 0.03 0.02
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE BASE_SENSORS
+      physics Physics {
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 21.63717477695765
+        anchor 0.0600009 -0.00152619 -0.0298789
+      }
+      device [
+        RotationalMotor {
+          name "motorLeft"
+        }
+        PositionSensor {
+          name "psLeft"
+        }
+      ]
+      endPoint DEF WHEEL_LEFT Solid {
+        translation 0.0600009 -0.0029300553310950897 -0.029338532255676314
+        rotation -0.7017727794792115 0.7012141359172361 -0.12575254101554298 3.3919816324145065
+        children [
+          DEF WHEEL Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 0 0 0
+              }
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 21.637174489923712
+        anchor -0.0600011 -0.00153114 -0.0298776
+      }
+      device [
+        RotationalMotor {
+          name "motorRight"
+        }
+        PositionSensor {
+          name "psRight"
+        }
+      ]
+      endPoint DEF WHEEL_RIGTH Solid {
+        translation -0.06 -0.002935027215932132 -0.029337231807229244
+        rotation -0.7017727312276606 0.7012141627022667 -0.12575266093021162 3.391981828772567
+        children [
+          DEF WHEEL Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 0 0 0
+              }
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    DEF ejeSoporteRueda HingeJoint {
+      jointParameters HingeJointParameters {
+        position 13.104958343447123
+        axis 0 1 0
+        anchor 0 -0.008 0.06
+      }
+      endPoint Solid {
+        translation -5.6577278854002566e-08 -0.008 0.05999999489179193
+        rotation 0 1 0 0.0003591003062296863
+        children [
+          DEF EjeRuedaLoca HingeJoint {
+            jointParameters HingeJointParameters {
+              position 691.4928727926508
+              anchor 0 -0.025 -0.012
+            }
+            endPoint Solid {
+              translation -1.066439347385766e-06 -0.025053326810027123 -0.012075379919981845
+              rotation 0.37554715780500564 -0.37524821855137086 -0.8474391463335906 4.5483891977470305
+              children [
+                DEF formaRuedaLoca Shape {
+                  appearance Appearance {
+                    material Material {
+                      diffuseColor 0 0 0
+                    }
+                  }
+                  geometry Cylinder {
+                    height 0.005
+                    radius 0.007
+                    subdivision 24
+                  }
+                }
+              ]
+              boundingObject USE formaRuedaLoca
+              physics Physics {
+              }
+            }
+          }
+          DEF CilindroVertical Transform {
+            translation 0 -0.02 0
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0 0 0
+                  }
+                }
+                geometry Cylinder {
+                  height 0.015
+                  radius 0.002
+                }
+              }
+            ]
+          }
+          DEF CilindroHorizontal Transform {
+            translation 0 -0.0255 -0.0065
+            rotation 1 0 0 1.57
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0 0 0
+                  }
+                }
+                geometry Cylinder {
+                  height 0.015
+                  radius 0.002
+                }
+              }
+            ]
+          }
+        ]
+        name "solid(2)"
+        boundingObject Group {
+          children [
+            USE CilindroVertical
+            USE CilindroHorizontal
+          ]
+        }
+        physics Physics {
+        }
+      }
+    }
+    DistanceSensor {
+      translation -0.0299998 0.04 0.07
+      rotation 0 1 0 -1.5708
+      children [
+        Transform {
+          translation 0.01 3.67321e-08 0
+          rotation 0 0 1 1.5708
+          children [
+            DEF SENSOR_CAP Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.560784 0.560784 0.560784
+                }
+              }
+              geometry Cylinder {
+                height 0.01
+                radius 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "dsLeft"
+      boundingObject USE SENSOR_CAP
+      physics DEF SENSOR_PH Physics {
+      }
+    }
+    DistanceSensor {
+      translation 0.0300001 0.04 0.07
+      rotation 0 1 0 -1.5708
+      children [
+        Transform {
+          translation 0.01 3.67321e-08 0
+          rotation 0 0 1 1.5708
+          children [
+            DEF SENSOR_CAP Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.560784 0.560784 0.560784
+                }
+              }
+              geometry Cylinder {
+                height 0.01
+                radius 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "dsRight"
+      boundingObject USE SENSOR_CAP
+      physics DEF SENSOR_PH Physics {
+      }
+    }
+  ]
+  name "robot(1)"
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "control2"
+}
